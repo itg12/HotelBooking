@@ -1,0 +1,727 @@
+
+/* ***********************RESPONSIVE NAVBAR************************ */
+
+@media only screen and (max-width: 1214px){
+    .search-box{
+        width:15vw;
+    }
+}
+
+@media only screen and (max-width: 1114px){
+   .hotel-name{
+    font-size: 12px;
+   }
+   .login-btn{
+    font-size: 12px;
+    padding: 12px 8px;
+   }
+   .Menubar ul li{
+    font-size: 9px;
+    padding: 0px 7px;
+   }
+}
+
+@media only screen and (max-width: 960px){
+   .hamburger1-icon{
+    display: block;
+   }
+   .navbar{
+    height: 10vh;
+   }
+   .Menubar{
+    position: fixed;
+    right: -150%;
+    top: 10vh;
+    width: 70%;
+    height: 100%;
+    background:rgba(0,0,0,0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   }
+   .Menubar ul li{
+    display: block;
+    font-size: 15px;
+    padding: 20px;
+    letter-spacing: 5px;
+   }
+   .login1-btn{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+   }
+   .login2-btn{
+    display: none;
+   }
+   .search-box{
+    width: 40vw;
+   }
+   .hotel-name{
+    font-size: 15px;
+   }
+ }
+
+ @media only screen and (max-width: 600px){
+    .hotel-name{
+        font-size: 12px;
+    }
+    .logo{
+        width:20px;
+        height: 20px;
+        
+    }
+ }
+
+
+/* ****************************************RESPONSIVE DIV1********************* */
+
+@media only screen and (max-width: 1080px){
+    .left-div1{
+        height: 40vh;
+
+    }
+    .right-div1{
+        height: 40vh;
+    }
+    .desc1{
+        font-size: 30px;
+    }
+    .right-div-box1{
+        width: 700px;
+        height: 150px;
+    }
+    .right-div-box2{
+        width: 700px;
+        height: 150px;
+    }
+    .discount-div{
+        font-size: 12px;
+    }
+    .promo-btn{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 814px){
+    .left-div1{
+        height: 30vh;
+
+    }
+    .right-div1{
+        height: 30vh;
+    }
+    .discount-div{
+        height: 40px;
+    }
+    .desc1{
+        font-size: 25px;
+    }
+    .desc2{
+        font-size: 12px;
+    }
+    .BookRoom-btn{
+        width: 150px;
+        height: 40px;
+        font-size: 10px;
+    }
+    .right-div-box1{
+        width: 800px;
+        height: 120px;
+    }
+    .right-div-box2{
+        width: 800px;
+        height: 120px;
+        margin-top: 40px;
+
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .div1{
+        flex-direction: column;
+    
+    }
+    .left-div1{
+        width: 100%;
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .right-div1{
+        width: 100%;
+        height: 40vh;
+        display: flex;
+        justify-content: center;
+    }
+    .discount-div{
+        height: 50px;
+    }
+    .desc1{
+        font-size: 40px;
+    }
+    .desc2{
+        font-size: 15px;    
+    }
+    .BookRoom-btn{
+        height: 50px;
+        font-size: 13px;
+    }
+    .right-div-box1{
+        height: 170px;
+    }
+    .right-div-box2{
+        height: 170px;
+    }
+}
+@media only screen and (max-width: 560px){
+    .desc1{
+        font-size: 30px;
+    }
+    .right-div1{
+        height: 30vh;
+       
+    }
+    .right-div-box1{
+        width: 900px;
+        height: 140px;
+    }
+    .right-div-box2{
+        width: 900px;
+        height: 140px;
+    }
+}
+@media only screen and (max-width: 430px){
+
+    .discount-div{
+        width: 90%;
+    }
+    .left-div1{
+        height: 40vh;
+    
+    }
+    .right-div1{       
+        height: 40vh;       
+    }
+    .desc1{
+        font-size: 20px;
+    }
+    .desc2{
+        font-size: 10px;    
+    }
+    .discount-div{
+        height: 40px;
+    }
+    .BookRoom-btn{
+        height: 40px;
+        font-size: 12px;
+    }
+    .right-div-box1{
+        height: 120px;
+    }
+    .right-div-box2{
+        height: 120px;
+    }
+}
+
+@media only screen and (max-width: 360px){
+    .right-div-box1{
+        width: 1000px;
+        height: 100px;
+    }
+    .right-div-box2{
+        width: 1000px;
+        height: 100px;
+    }
+    .discount-div{
+        font-size: 8px;
+    }
+    .promo-btn{
+        font-size: 8px;
+    }
+}
+
+
+
+
+
+/* ******************************RESPONSIVE AVAILABILITY BOX******************** */
+
+@media only screen and (max-width: 767px){
+    .availability-box{
+        height: 250px;
+        flex-direction: column;
+    }
+    .availability-date-box{
+        width: 80%; 
+        height: 20px; 
+    }
+    .availability-btn{
+        font-size: 8px;
+        width: 50%; 
+    }
+    
+
+}
+
+
+
+
+/* ********************************RESPONSIVE DIV3************************************** */
+
+
+@media only screen and (max-width: 814px){
+    .div3-popular-rooms-img{
+        width: 40%;
+    }
+    .div3-book-btn{
+        margin-top: 2vh;
+    }
+}
+
+
+@media only screen and (max-width: 676px){
+    .div3-popular-rooms-img{
+        width: 45%;
+    }
+    .div3-book-btn{
+        margin-top: 1vh;
+    }
+}
+@media only screen and (max-width: 588px){
+    .div3-popular-rooms-body{
+        height:150px;
+    }
+    .div3-popular-rooms-img{
+        width: 40%;
+    }
+    .div3-book-btn{
+        margin-top: 1vh;
+    }
+    .div3-title{
+        font-size: 12px;
+        padding: 4px;
+    }
+    .div3-desc{
+        font-size: 10px;
+        padding: 4px;
+    }
+    .div3-price{
+        font-size: 12px;
+    }
+    .div3-book-btn{
+        padding: 10px 5px;       
+        margin-top: 10px;      
+    }
+}
+@media only screen and (max-width: 461px){
+    .div3-popular-rooms-body{
+        height:120px;
+    }
+    .div3-popular-rooms-img{
+        width: 40%;
+    }
+    .div3-book-btn{
+        font-size: 6px;
+        margin-top: 5px;
+    }
+    .div3-title{
+        font-size: 8px;
+        padding: 4px;
+    }
+    .div3-desc{
+        font-size: 6px;
+        padding: 4px;
+    }
+    .div3-price{
+        font-size: 8px;
+    }
+    .div3-book-btn{
+        padding: 10px 5px;       
+        margin-top: 10px;      
+    }
+}
+
+@media only screen and (max-width: 340px){
+    .div3-popular-rooms-body{
+        height:100px;
+    }
+    .div3-popular-rooms-img{
+        width: 40%;
+    }
+    .div3-book-btn{
+        font-size: 6px;
+        margin-top: 5px;
+    }
+    .div3-title{
+        font-size: 6px;
+        padding: 4px;
+    }
+    .div3-desc{
+        font-size: 4px;
+        padding: 4px;
+    }
+    .div3-price{
+        font-size: 6px;
+    }
+    .div3-book-btn{
+        padding: 10px 5px;       
+        margin-top: 10px;      
+    }
+}
+
+
+/* **************************************RESPONSIVE FOOTER*********************** */
+
+@media only screen and (max-width: 767px){
+    .footer{
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .footer-text{
+        font-size: 10px;
+    }
+    .footer-social-media-icons{
+        width: 20%;
+        justify-content: space-between;
+
+    }
+}
+
+/* **************************************RESPONSIVE LOGIN PAGE***************************** */
+@media only screen and (max-width: 1127px){
+    .login-left-div2-title1{
+        font-size: 18px;
+    }
+    .login-left-div2-title2{
+        font-size: 8px;     
+    }
+    .login-form-emailInput::placeholder{
+        font-size: 10px;
+    }
+    .login-form-passwordInput::placeholder{
+        font-size: 10px;
+    }
+    .login-form-right-div-questionMark{
+        font-size:7px; 
+        padding-top:10px;
+    }
+}
+@media only screen and (max-width: 906px){
+       
+    .login-form-emailInput::placeholder{
+        font-size: 8px;
+    }
+    .login-form-passwordInput::placeholder{
+        font-size: 8px;
+    }
+}
+@media only screen and (max-width: 832px){
+    .login-left-div2-title1{
+        font-size: 12px;
+    }
+    .login-left-div2-title2{
+        font-size: 6px;     
+    }
+    .login-form-emailInput::placeholder{
+        font-size: 6px;
+    }
+    .login-form-passwordInput::placeholder{
+        font-size: 6px;
+    }
+    .login-right-title1-div{
+        height: 25px;
+    }
+}
+@media only screen and (max-width: 705px){
+    .login-main-body{
+        width: 90%;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+    }
+    .login-left-div{
+        width: 100%;
+        height: 25%;
+        border: 0px;
+        border-radius: 10px 10px 0px 0px;
+
+    }
+    .login-right-div{
+        width: 100%;
+        height: 75%;
+        border-radius: 0px 0px 10px 10px;
+    }
+    .login-left-div2{       
+        position: relative;
+        top: 20%;
+        left: 5%;   
+    }
+    .login-form-socialMediaicons{
+        padding-top: 5px;
+    }
+    .login-form-emailBox{
+        height: 40px;  
+        margin-top: 10px;
+    }
+    
+    .login-form-passwordBox{
+        height: 40px;           
+        margin-top: 10px;          
+    }
+
+}
+
+@media only screen and (max-width: 450px){
+    .login-left-div2{
+        top: 15%;
+    }
+    .login-form-socialMediaicons{
+        padding-top: 5px;
+    }
+    .login-form-emailBox{
+        height: 40px;  
+        margin-top: 10px;
+    }
+    
+    .login-form-passwordBox{
+        height: 40px;           
+        margin-top: 10px;
+           
+    }
+    .login-form-login-btn{
+        height: 40px;
+        margin-top: 10px;      
+        font-size: 12px;       
+    }
+    
+}
+@media only screen and (max-width: 312px){
+
+    .login-left-div2-title2{
+        font-size: 4px;      
+    }
+    
+    .login-left-div2{       
+        position: relative;
+        top: 20%;
+        left: 5%;   
+    }
+}
+@media only screen and (max-width: 350px){
+    .login-left-div{
+        width: 100%;
+        height: 19%;
+    }
+    .login-right-div{
+        width: 100%;
+        height: 81%;
+        z-index: 1;
+    }
+    
+}
+
+/* *************************************RESPONSIVE FILTER BOX************************* */
+@media only screen and (max-width: 1000px){
+    select{
+        width:15%;
+    }
+}
+@media only screen and (max-width: 700px){
+    select{
+        width:100px;
+        font-size: 5px;
+    }
+    .sorting-title{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 590px){
+    select{
+        width:60px;
+        height: 40%;
+        font-size: 4px;
+    }
+    .sorting-title{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width: 385px){
+    select{
+        width:50px;
+    }
+    .sorting-title{
+        font-size: 7px;
+    }
+}
+@media only screen and (max-width: 300px){
+    select{
+        width:40px;
+    }
+    .sorting-title{
+        font-size: 5px;
+    }
+}
+
+/* ***********************RESPONSIVE ROOM DETAILS PAGE******************************************** */
+
+@media only screen and (max-width: 700px){
+    .roomDetails-main-div{
+        flex-direction: column;
+    }
+    .roomImage-div{
+        width: 97%;
+    }
+    .roomDetails-div{
+        width: 97%;
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width: 570px){
+    .roomDetails-main-div{
+        padding: 20px 0px;
+        flex-direction: column;
+    }
+    .roomImage-div{
+        width: 97%;
+        height: 300px;
+    }
+    .roomDetails-div{
+        width: 97%;
+        height: 400px;
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width: 455px){
+    .roomImage-div{
+        width: 97%;
+        height: 250px;
+    }
+    .roomDetails-div{
+        height: 500px;
+    }
+    .roomDetails-roomFacilities-and-rating{
+        flex-direction: column;
+    }
+    .roomDetails-roomFacilities{
+        width: 100%;
+    }
+    .roomDetails-roomRating{
+        width: 97%;
+        height: 25%;
+        margin-top: 10px;
+    }
+    .roomDetails-title{
+        font-size: 15px;
+    }
+    .roomDetails-Desc{
+        font-size: 12px;
+    }
+    .roomDetails-book-btn{
+        margin-top: 10px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    
+}
+@media only screen and (max-width: 400px){
+    .roomImage-div{
+        width: 97%;
+        height: 190px;
+    }
+    .roomDetails-book-btn{
+        margin-top: 10px;
+        font-size: 8px;
+    }
+    
+}
+@media only screen and (max-width: 290px){
+    .roomImage-div{
+        width: 97%;
+        height: 150px;
+    }
+    .roomDetails-book-btn{
+        padding: 10px;
+        font-size: 6px;
+    }
+    
+}
+
+/* ******************************RESPONSIVE ABOUT US AND CONTACT US************************** */
+
+@media only screen and (max-width: 1035px) {
+    .title-aboutUs{
+        font-size: 10px;
+    }
+    .contact-left-div-title1{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .contact-main-div{
+        flex-direction: column;
+    }
+    .contact-left-div{
+        width:95%;
+        height: 400px;
+        
+    }
+    .contact-right-div{
+        width: 95%;
+        height: 400px;
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+
+}
+@media only screen and (max-width: 500px) {
+    .contact-send-btn{
+        width: 88%;
+    }
+}
+
+
+/* ************************************RESPONSIVE FACILITIES PAGE************************** */
+
+@media only screen and (max-width: 775px) {
+    .facility-card{
+        width: 49%;
+        height: 320px;
+        margin: 3px;
+    }
+}
+@media only screen and (max-width: 598px) {
+    .facility-card{
+        width: 90%;
+        height: 400px;
+        margin: 10px;
+    }
+}
+
+
+
+/* *************************************SCROLLING CARDS***************************** */
+
+@media only screen and (max-width:875px)
+{
+    .scroll-card2-child
+    {
+        min-width: 50vh;
+        height:30vh;
+        margin: 50px 15px;
+    }
+}
+
+@media only screen and (max-width:400px)
+{
+    .scroll-card2-child
+    {
+        min-width: 33vh;
+        height:20vh;
+        margin: 40px 12px;
+    }
+}
+

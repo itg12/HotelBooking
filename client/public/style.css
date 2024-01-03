@@ -1,0 +1,852 @@
+
+/* ***********************NAVBAR***************************** */
+
+@font-face {
+    font-family: Lastica;
+    src: url(Lastica.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Lastica;
+}
+::-webkit-scrollbar{
+    width: 0;
+}
+body{
+    background: linear-gradient(45deg, #442063, #342557, #442063);
+    letter-spacing: 4px;
+}
+.navbar{
+    width:100%;
+    height: 12vh;
+    background-color: #342557;
+    display:flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+}
+.logo{
+    width:30px;
+    height: 30px;
+    margin: 0px 5px;
+    border-radius: 50%;
+}
+.hotel-name_and_logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+
+}
+.hotel-name{
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.Menubar{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;  
+}
+.Menubar ul{
+    list-style: none;
+}
+.Menubar ul li{
+    display: inline-block;
+    padding: 0px 10px;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.Menubar ul li a{
+    color: white;
+    text-decoration: none;
+}
+.search-box{
+    width:22vw;
+    padding: 12px 18px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.login1-btn{ 
+    text-align: center;
+    padding: 12px 10px;
+    background-color: #342557;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    display: none;
+}
+.login2-btn{ 
+    text-align: center;
+    padding: 12px 10px;
+    background-color: #342557;
+    border: 1px solid white;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 4px;
+}
+.hamburger1-icon{
+    display: none;
+}
+.hamburger2-icon{
+    display: none;
+}
+
+
+
+/* **********************************DIV1*************************** */
+
+
+.div1{
+    width: 100%;
+    height: auto;
+    display: flex;   
+}
+.left-div1{
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+.right-div1{
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+}
+
+
+.discount-div{
+    width: 80%;
+    height: 50px;
+    margin-left: 3%;
+    margin-top: 30px;
+    display: flex;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.promo-btn{
+    height: 100%;
+    width: 30%;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 12px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #342557;
+    cursor: pointer;
+}
+
+.disc-field{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding-left: 4px;
+    letter-spacing: 4px;
+    color: white;
+    font-size: 12px;
+}
+
+.disc-field::placeholder{
+    color: white;
+}
+
+.desc1{
+    font-size: 40px;
+    letter-spacing: 4px;
+    color: white;
+    padding: 3%;
+}
+.desc2{
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: white;
+    padding-left: 3%;
+
+}
+
+.BookRoom-btn{
+    width: 200px;
+    height: 50px;    
+    background-color: #342557;
+    border: 1px solid white;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 8% 3%;
+}
+
+.right-div-box1{
+    width: 300px;
+    height: 170px;
+    position: relative;
+    top: 130px;
+    right: -50px;
+    z-index: -1;
+}
+.right-div-box2{
+    width: 300px;
+    height: 170px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+
+
+
+/* **********************************ABAILABILITY BOX***************************** */
+.availability-box{
+    width: 95%;
+    height: 120px;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+      
+}
+.availability-text{
+    font-size: 15px;
+    color: #342557;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+}
+.availability-btn{
+    font-size: 10px;
+    width: 200px; 
+    height: 50px;
+    background-color: #442063;
+    letter-spacing: 4px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    padding: 10px;
+}
+.availability-date-box{
+    width: 200px; 
+    height: 20px; 
+    background-color: white; 
+    border: none; outline:none; 
+    letter-spacing: 4px;  
+    box-shadow: 5px 5px 10px lightgray, -5px -5px 10px lightgray; 
+    padding: 10px; 
+    border-radius: 5px;
+}
+
+/* ****************************************DIV2 SLIDING CARDS************************* */
+
+.div2{
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow-x: auto;
+}
+.rooms-card{
+    min-width: 250px;
+    height: 300px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.div2-card-title{
+    font-size: 15px;
+    color: #342557;
+    letter-spacing: 4px;
+    padding: 4px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.div2-card-capacity{
+    font-size: 12px;
+    padding: 4px;
+}
+.div2-card-price{
+    padding-top: 25px;
+}
+.card2-view-btn{
+    padding: 10px;
+    border: none;
+    background-color: #342557;
+    color: white;
+    font-size: 10px;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    cursor:pointer;
+}
+.div2::-webkit-scrollbar{
+    width: 0;
+}
+
+/* ****************************DIV3********************************************* */
+
+.div3{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div3-popular-rooms-body{
+    width: 95%;
+    height: 200px;
+    background-color: white;
+    margin-top: 2%;
+    border-radius: 5px;
+    display: flex;
+    padding: 10px;
+}
+
+.div3-popular-rooms-img{
+    width: 30%;
+    height: 100%;
+    border-radius: 5px;
+}
+.div3-title-desc-div{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+.div3-title{
+    color: #342557;
+    padding: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+.div3-desc{
+    font-size: 12px;
+    color: #342557;
+    padding: 10px;
+    letter-spacing: 4px;
+    overflow: hidden;
+}
+.div3-book-btn{
+    text-align: center;
+    padding: 12px 10px;
+    background-color: #342557;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    margin-top: 50px;
+    float: right;
+    
+}
+.div3-explore-btn{
+    text-align: center;
+    padding: 12px 10px;
+    background-color: #342557;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.like-btn-icon{
+    color: lightgray;
+    cursor: pointer;
+}
+
+/* ******************************FOOTER************************** */
+.footer{
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid white;   
+}
+.footer-text{
+    color: white;
+    letter-spacing: 4px;
+}
+.footer-social-media-icons{
+    width: 15%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* **********************************RESPONSIVE LOGIN PAGE******************************** */
+
+.login-main-body{
+    width: 80%;
+    height: 540px;
+    margin-top: 30px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50% , -60%);
+    z-index: -1;
+    display: flex;
+    border-radius: 5px;
+}
+.login-left-div{
+    width: 50%;
+    height: 100%;
+    background:linear-gradient(90deg, #2f1d58, #442063, #2f1d58);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.login-left-div1{
+    margin-top: 10px;
+}
+.login-left-div2{
+    width: 90%;
+    height: 130px;
+    position: relative;
+    top: 35%;
+    left: 5%;
+
+}
+.login-left-div2-title1{
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 4px;
+    padding-top: 5px;
+}
+.login-left-div2-title2{
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    letter-spacing: 4px;
+}
+
+.login-right-div{
+    width: 50%;
+    height: 100%;
+    background-color:white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.login-right-title1-div{
+    width: 40%;
+    height: 35px;
+    margin-top: 10px;
+    background:linear-gradient(45deg,  #442063, #342557, #442063);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.login-right-form-div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.login-form-socialMediaicons{
+    padding: 20px;
+    cursor: pointer;
+}
+
+.login-form-emailBox{
+    width: 80%;
+    height: 50px;
+    border: 1px solid #342557;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+}
+.login-form-passwordBox{
+    width: 80%;
+    height: 50px;
+    margin-top: 20px;
+    border: 1px solid #342557;
+    display: flex;
+    align-items: center;
+    
+}
+.login-form-emailInput{
+    width:100%; 
+    height:100%; 
+    border: none;
+    outline: none; 
+    color: #342557; 
+    letter-spacing: 4px; 
+    padding-left:5px;
+}
+.login-form-passwordInput{
+    width:100%; 
+    height:100%; 
+    border: none;
+    outline: none; 
+    color: #342557; 
+    letter-spacing: 4px; 
+    padding-left:5px;
+}
+
+.login-form-login-btn{
+    width: 80%;
+    height: 50px;
+    margin-top: 20px;
+    background-color: #342557;
+    border: 1px solid #342557;
+    border: none;
+    color: white;
+    letter-spacing: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.login-form-right-div-questionMark{
+    font-size:10px; 
+    letter-spacing:4px; 
+    color: #342557;
+    padding-top:10px;
+    text-align: center;
+}
+
+/* ***********************FILTER DIV******************************** */
+
+.main-body-filter{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.main-body-filter-div{
+    width: 97%;
+    height: 80px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+}
+.sorting{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.sorting-title{
+    font-weight: bold;
+    color: #342557;
+}
+select{
+    width: 200px;
+    height: 50%;
+    border: none;
+    color: #342557;
+    letter-spacing: 4px;
+    border: 1px solid #342557;
+    background-color: white;
+    outline: none;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+select option{
+    font-size: 15px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+
+/* ***********************ROOM DETAILS PAGE******************************************** */
+
+.roomDetails-main-div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.roomImage-div{
+    width: 49%;
+    height: 400px;
+}
+.roomDetails-div{
+    width: 49%;
+    height: 400px;
+    background:linear-gradient(90deg, #2f1d58, #442063, #2f1d58);
+    border-radius: 10px ;
+    margin-left: 5px;
+
+}
+.roomDetails-roomImgage{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.roomDetails-title{
+    color: white;
+    letter-spacing: 4px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.roomDetails-Desc{
+    color: white;
+    letter-spacing: 4px;
+    padding: 10px;
+    font-size: 12px;
+}
+.roomDetails-roomFacilities-and-rating{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.roomDetails-roomFacilities{
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+}
+.roomDetails-roomRating{
+    width: 30%;
+    height: 80%;
+    background:linear-gradient(45deg, #2f1d58, #442063, #2f1d58);
+    border-radius: 5px;
+    margin: 0px 10px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.roomDetails-book-btn{
+    padding: 15px;
+    background-color: white;
+    border: none;
+    float: right;
+    margin-right: 10px;
+    margin-top: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 4px;
+    color: #442063;
+    font-weight: bold;
+}
+
+/* ****************************CONTACT US AND ABOUT US********************************** */
+.contact-main-div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.contact-left-div{
+    width:48%;
+    height: 400px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background:linear-gradient(45deg, #2f1d58, #442063, #2f1d58);
+}
+.contact-right-div{
+    width: 48%;
+    height: 400px;
+    margin-left: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background:linear-gradient(45deg, #2f1d58, #442063, #2f1d58);
+}
+.contact-left-div-title1{
+    font-size: 20px;
+    color: white;
+    letter-spacing: 4px;
+    padding-top: 10px;
+    text-align: center;
+}
+.title-aboutUs-div{
+    margin-top: 2%;
+    width: 40%;
+    height: 40px;
+    background-color: white;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-aboutUs{
+    color: #342557;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+.contact-right-input-divs{
+    width: 100%;
+    height: 85%;
+    /* background-color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-inputFields{
+    width: 80%;
+    padding: 12px 15px;
+    margin: 5px;
+    letter-spacing: 4px;
+    color: white;
+    outline: none;
+    border:1px solid white;
+    background-color: transparent;
+}
+.contact-inputFields::placeholder{
+    color: white;
+    font-size: 8px;
+}
+.contact-send-btn{
+    width: 85%;
+    padding: 12px 15px;
+    margin: 5px;
+    letter-spacing: 4px;
+    color: #342557;
+    border: none;
+    outline: none;
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+/* ***********************************FACITILIES PAGE*********************** */
+
+
+.facilities-main-div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.facility-card{
+    width: 30%;
+    height: 350px;
+    background:linear-gradient(180deg, #2f1d58, #442063, #2f1d58);
+    margin: 10px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+
+/* ************************SCROLL CARDS CSS************************************* */
+
+
+.scroll-card2{
+    height: auto;
+    display: flex;
+    overflow-x:auto;
+    overflow-x:scroll;
+}
+
+
+.scroll-card2-child
+{
+    min-width: 70vh;
+    height:40vh;
+    margin: 80px 30px;
+    border-radius: 20px;
+}
+
+.scroll-card2-img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.scroll-card2::-webkit-scrollbar {
+    width: 0;
+}
+
+
+/* *******************************BOOK ROOM PAGE************************* */    
+.BookRoom-InputBox{
+    width: 80%;
+    height: 30px;
+    letter-spacing: 4px;
+    font-size: 10px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+}
+
+
+
+
+
+
+
+/* ********************************TYPEWRITER EFFECT************************ */
+
+ .desc2 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid white; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    margin-left: 0px;
+    animation: 
+      typing 3s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 50% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
