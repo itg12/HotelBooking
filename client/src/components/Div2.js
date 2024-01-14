@@ -11,7 +11,7 @@ export default function Div2() {
   },[])
 
   const getTopRooms = () => {
-    const p = fetch('http://localhost:7335/toprooms')
+    const p = fetch('http://192.168.133.80:7335/toprooms')
     p.then((res)=>{
       return res.json()
     }).then((data)=>{
@@ -38,7 +38,8 @@ export default function Div2() {
                       <p className="div2-card-title">{title}</p>
                       <p className="div2-card-capacity">CAPACITY-{capacity}ADULTS</p>
                       <p className="div2-card-price div2-card-title">RS-{price}/-DAY</p>
-                      <center><Link to={`/rooms/detail/${_id}`}><button className="card2-view-btn">VIEW</button></Link></center>
+                      {/* <center><Link to={`/rooms/detail/${_id}`}><button className="card2-view-btn">VIEW</button></Link></center> */}
+                      <center><Link to={`/${_id}`}><button className="card2-view-btn">VIEW</button></Link></center>
                     </div> 
                   </>
                 )

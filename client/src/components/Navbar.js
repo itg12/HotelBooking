@@ -42,7 +42,7 @@ export default function Navbar() {
 
         <div className="navbar">
             <div className="hotel-name_and_logo">
-                <img className="logo" src="SK.png" alt="img"/>
+                <img className="logo" src="SK.png" alt=""/>
                 <p className="hotel-name">SLIKEE</p>
             </div>
             <div className="Menubar" id="Menubar">

@@ -36,6 +36,10 @@ const RoomSchema = mongoose.Schema({
         type: Boolean,
         default: false,
         required: true
+    },
+    category:{
+        type: String,
+        required: true
     }
 })
 

@@ -1,6 +1,45 @@
 import React from 'react'
+import { useState } from 'react'
+import Swal from 'sweetalert2'
 
 export default function Contact() {
+
+            const [Message, setMessage] = useState({
+                name:"", email:"", phone:"", message:""
+            })
+
+            const SendMessage = async (e)=>{
+                e.preventDefault()
+                const res = await fetch("http://localhost:7335/contact", {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json"           
+                    },
+                    body: JSON.stringify({name:Message.name, email:Message.email, phone:Message.phone, message:Message.message})
+                })
+        
+                if(res.status === 502){
+                    Swal.fire("Warning","Please fill the field properly","warning")            
+                }
+        
+                if(res.status === 430){
+                    Swal.fire("error","Enter valid Email id","error")            
+                }
+        
+                if(res.status === 404){
+                    Swal.fire("Error","Some Error Occured","error")            
+                }
+        
+                if(res.status === 200){
+                    Swal.fire("SUCCESS", "MESSAGE SENT SUCCESSFULL", 'success')  
+                    setMessage({name:"", email:" ", phone:"", message:""})        
+                }
+            }
+
+        const handleInput = (e)=>{
+            setMessage({...Message, [e.target.name]:e.target.value})
+        }
+
   return (
     <>
 
@@ -31,11 +70,11 @@ export default function Contact() {
                     <p className="title-aboutUs">CONTACT US</p>
                 </div>
                 <div className="contact-right-input-divs">
-                    <input className='contact-inputFields' type="text" required placeholder='ENTER YOUR NAME'  name='' />
-                    <input className='contact-inputFields' type="email" required  placeholder='ENTER YOUR EMAIL'  name='' />
-                    <input className='contact-inputFields' type="number" maxLength="10" required placeholder='ENTER YOUR MOBILE NO.'  name='' />
-                    <input className='contact-inputFields' type="textarea" maxLength="50" required placeholder='ENTER MESSAGE HERE'  name='' />
-                    <button className='contact-send-btn'>SEND</button>
+                    <input className='contact-inputFields' type="text" required placeholder='ENTER YOUR NAME'  name='name' value={Message.name} onChange={handleInput}/>
+                    <input className='contact-inputFields' type="email" required  placeholder='ENTER YOUR EMAIL'  name='email' value={Message.email} onChange={handleInput}/>
+                    <input className='contact-inputFields' type="number" required  placeholder='ENTER YOUR MOBILE NO.'  name='phone' value={Message.phone} onChange={handleInput}/>
+                    <input className='contact-inputFields' type="text" maxLength="50" required placeholder='ENTER MESSAGE HERE'  name='message' value={Message.message} onChange={handleInput}/>
+                    <button className='contact-send-btn' onClick={SendMessage}>SEND</button>
                 </div>
             </div>
         </div>

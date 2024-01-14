@@ -323,7 +323,7 @@ body{
     align-items: center;
 }
 .div3-popular-rooms-body{
-    width: 95%;
+    width: 95vw;
     height: 200px;
     background-color: white;
     margin-top: 2%;
@@ -657,6 +657,7 @@ select option{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .roomDetails-book-btn{
     padding: 15px;
@@ -811,12 +812,13 @@ select option{
 /* *******************************BOOK ROOM PAGE************************* */    
 .BookRoom-InputBox{
     width: 80%;
-    height: 30px;
+    height: 40px;
     letter-spacing: 4px;
     font-size: 10px;
     padding-left: 10px;
     border: none;
     outline: none;
+    font-weight: bold;
 }
 
 

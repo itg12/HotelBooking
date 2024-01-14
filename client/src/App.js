@@ -9,11 +9,10 @@ import BookRoom from './screens/BookRoom';
 import RoomDetails from './screens/RoomDetails';
 
 
-
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -25,11 +24,17 @@ function App() {
           <Route path='/login' exact element = {<Login/>} />
           <Route path='/signup' exact element = {<Signup/>} />
           <Route path='/rooms' exact element = {<Rooms/>} />
-          <Route path='/bookings' exact element = {<Bookings/>} />
+          {
+            (localStorage.getItem("Token"))?
+            <Route path='/bookings' exact element = {<Bookings/>} />
+            :
+            <Route path='/bookings' exact element = {<Login/>} />
+          }
           <Route path='/facilities' exact element = {<Facilities/>} />
           <Route path='/restraunt' exact element = {<Restraunt/>} />
-          <Route path='/BookRoom' exact element = {<BookRoom/>} />
-          <Route path='/rooms/detail/:id' exact element = {<RoomDetails/>} />
+          <Route path='/BookRoom/:id' exact element = {<BookRoom/>} />
+          {/* <Route path='/roomDetails/:id' exact element = {<RoomDetails/>} /> */}
+          <Route path='/:id' exact element = {<RoomDetails/>} />
         </Routes>
       </Router>
     </>

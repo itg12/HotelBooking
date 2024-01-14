@@ -36,6 +36,7 @@ export default function Login() {
 
       if(res.status === 200){         
           localStorage.setItem("Token", response.Token)
+          localStorage.setItem("User", response.UserID)
           Swal.fire("SUCCESS", "LOGIN SUCCESSFULLY", 'success')  
           navigate("/")
       }
