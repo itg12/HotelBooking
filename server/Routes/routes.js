@@ -9,7 +9,6 @@ const Bookings = require('../Models/Bookings')
 const jwt = require('jsonwebtoken')
 
 
-
 // Signup Route
 
 router.post("/signup", async (req,res)=>{
@@ -83,7 +82,6 @@ router.post("/signup", async (req,res)=>{
 })
 
 
-
 // Login Route
 
 router.post("/login", async (req,res)=>{
@@ -136,9 +134,6 @@ router.post("/login", async (req,res)=>{
 })
 
 
-
-
-
 // Contact (Message) Schema
 
 router.post("/contact", async (req,res)=>{
@@ -186,8 +181,6 @@ router.post("/contact", async (req,res)=>{
                subject: "SLIKEE HOTEL", // Subject line
                text:  `${req.body.name}, Thank you for Connecting with us. We will contact you soon.` // plain text body
              });
-           
-             console.log("Message sent: %s", info.messageId);
             }
             main().catch(console.error)
         }
@@ -210,7 +203,6 @@ router.get('/toprooms', async (req,res)=>{
      return res.status(404).json({message:"Some Error Occured"}+err)
     }   
  })
-
 
  
 // Fetch All Rooms from Database
@@ -238,7 +230,6 @@ router.get('/:id', async (req,res)=>{
      return res.status(404).json({message:"Some Error Occured"}+err)
     }    
  })
-
 
 
  // Bookable Room Details
@@ -327,6 +318,7 @@ router.post("/BookingRoom", async (req,res)=>{
      
 })
  
+
 // Logout the User
 
 router.post("/logout",async(req,res)=>{
@@ -355,6 +347,7 @@ router.post("/logout",async(req,res)=>{
     }
     
 })
+
 
 // All Bookings of a Particular User
 router.get("/my_bookings/bookings", async (req,res)=>{
@@ -398,6 +391,36 @@ router.get("/my_bookings/bookings", async (req,res)=>{
             return res.status(409).json({message:"Invalid JWT token"})
         } 
   
+    } catch (error) {
+        return res.send("Some Error Occured", error)
+    }
+})
+
+
+// Cancel A Particular Booked Room
+
+router.post("/CancelBooking", async (req,res)=>{
+    try {
+        
+        // Getting the Token and RoomId sending by the headers
+        const token = req.headers.token
+        const RoomId = req.headers.roomid
+
+        // Verifying the JWT Token
+
+        const decode = await jwt.verify(token, process.env.SECRET_KEY)
+        const user = decode.user.id 
+
+        // Finding the user by JWT Token
+        const findLoggedInUser = await User.findOne({_id:user})
+
+        // Remove the Booking from the Database.
+        await findLoggedInUser.bookings.remove(RoomId)
+        const saveDetails = await findLoggedInUser.save()
+
+        if(saveDetails){
+            return res.status(200).json({message:"Cancle Booking Successfully"})
+        }
     } catch (error) {
         return res.send("Some Error Occured", error)
     }

@@ -1,12 +1,17 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
 
 
 
 export default function Bookings() {
 
     const host = window.location.hostname
+
+    const navigate = useNavigate()
 
     const [Bookings, setBookings]=useState([])
     useEffect(()=>{
@@ -28,6 +33,30 @@ export default function Bookings() {
           console.log(data)
         }).catch((err)=>console.log(err))
        
+    }
+
+
+    const cancelBooking=(RoomId)=>{
+        let p = fetch(`http://${host}:7335/CancelBooking`,{
+            method:"POST",
+            headers:{
+                "token": localStorage.getItem("Token"),
+                "roomid": RoomId
+            }
+        })
+
+        p.then((res)=>{
+            res.json()
+
+            if(res.status===200){
+                Swal.fire("SUCCESS", `CANCEL SUCCESSFULLY`, 'success')  
+                navigate("/")
+            }
+    
+            if(res.status===404){
+                Swal.fire("ERROR", `SOME ERROR OCCURED`, 'error')  
+            }  
+        }).catch((err)=>console.log(err))      
     }
 
   return (
@@ -61,7 +90,7 @@ export default function Bookings() {
                                     <p className='roomDetails-ratingNo' style={{color:"white", fontWeight:"bold", fontSize:"25px"}}>{rating}<span><img src="star-fill.svg" alt="" /></span></p>
                                 </div>
                                 </div>
-                                <button className="roomDetails-book-btn">CANCEL</button>
+                                <button className="roomDetails-book-btn" onClick={()=> cancelBooking(_id)}>CANCEL</button>
                             </div>
                         </div>   
                     </>

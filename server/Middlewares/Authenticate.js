@@ -4,22 +4,27 @@ const User = require("../Models/UserSchema");
 
 const Authenticate = async (req,res,next)=>{
     try{
-        const decode= jwt.verify(token, process.env.SECRET_KEY);
+        // Finding the JWT Token
+        const Token = req.headers.token
 
-        const rootUser = await User.findOne({_id:decode._id, token: token});
+        // Verifying the User
+        const decode = jwt.verify(Token, process.env.SECRET_KEY)
+        const userID = decode.user.id
 
-        if(!rootUser){
+        // Finding the particular user by email
+        const findUser = await User.findById({_id:userID})
+
+        if(!findUser){
             throw new Error("User not Found");
         }
 
-        req.token = token;
+        res.status(200).send("Authentication Successfull")
 
         next();
-       
+      
     }
     catch(err){
-        res.status(401).send('Unauthorised Person: No Token Provided')
-        console.log(err);
+        return res.status(401).send('Unauthorised Person: No Token Provided')
     }
 
 }
