@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 
 export default function Div3() {
 
+    const host = window.location.hostname
+
     const [Rooms, setRooms] = useState([])
     useEffect(()=>{
         getRooms()
     },[])
 
     const getRooms=()=>{
-        let p = fetch("http://localhost:7335/rooms")
+        let p = fetch(`http://${host}:7335/rooms`)
   
         p.then((value1) => {
             return value1.json();

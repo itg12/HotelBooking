@@ -24,16 +24,10 @@ function App() {
           <Route path='/login' exact element = {<Login/>} />
           <Route path='/signup' exact element = {<Signup/>} />
           <Route path='/rooms' exact element = {<Rooms/>} />
-          {
-            (localStorage.getItem("Token"))?
-            <Route path='/bookings' exact element = {<Bookings/>} />
-            :
-            <Route path='/bookings' exact element = {<Login/>} />
-          }
+          <Route path='/bookings' exact element = {<Bookings/>} />
           <Route path='/facilities' exact element = {<Facilities/>} />
           <Route path='/restraunt' exact element = {<Restraunt/>} />
           <Route path='/BookRoom/:id' exact element = {<BookRoom/>} />
-          {/* <Route path='/roomDetails/:id' exact element = {<RoomDetails/>} /> */}
           <Route path='/:id' exact element = {<RoomDetails/>} />
         </Routes>
       </Router>

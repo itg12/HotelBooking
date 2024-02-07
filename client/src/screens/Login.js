@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 
 export default function Login() {
 
+  const host = window.location.hostname
+
   const navigate = useNavigate()
 
   const [user, setUser] = useState({
@@ -15,14 +17,14 @@ export default function Login() {
 
   const PostData = async (e)=>{
       e.preventDefault()
-      const res = await fetch('http://localhost:7335/login', {
+      const res = await fetch(`http://${host}:7335/login`, {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
-            
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({email:user.email, password:user.password})       
       })
+
 
       const response  = await res.json()
 
@@ -36,7 +38,6 @@ export default function Login() {
 
       if(res.status === 200){         
           localStorage.setItem("Token", response.Token)
-          localStorage.setItem("User", response.UserID)
           Swal.fire("SUCCESS", "LOGIN SUCCESSFULLY", 'success')  
           navigate("/")
       }

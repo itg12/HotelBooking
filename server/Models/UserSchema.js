@@ -23,13 +23,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 
-    bookings:[{
-        image: String,
-        title: String,
-        desc:  String,
-        price: Number,
-        rating: Number,
-    }],
+    bookings:[],
 
     token:{
         type: String,

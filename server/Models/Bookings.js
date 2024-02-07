@@ -15,7 +15,6 @@ const BookingSchema = mongoose.Schema({
     },
     email:{
         type: String,
-        requied:true
     },
     bookingDate:{
         type: Date,

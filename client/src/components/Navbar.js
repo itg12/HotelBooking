@@ -4,6 +4,9 @@ import Swal from 'sweetalert2'
 
 export default function Navbar() {
 
+    const host = window.location.hostname
+
+
     // *******************************RESPONSIVE NAVBAR************************
 
     let openHamburger=()=>{
@@ -28,7 +31,15 @@ export default function Navbar() {
 
     const navigate = useNavigate()
 
-    const handleLogOut=()=>{
+    const handleLogOut= async (e)=>{
+        e.preventDefault()
+        let p = await fetch( `http://${host}:7335/logout`,{
+            method:"POST",
+            headers:{
+                "token":localStorage.getItem("Token")
+            }
+        })
+        
         localStorage.removeItem("Token")
         Swal.fire("Logout", "Logout Successfull", "success")
         navigate("/login")
@@ -37,6 +48,7 @@ export default function Navbar() {
 
   return (
    <>
+
 
          {/* ***************************NAVBAR************************* */}
 

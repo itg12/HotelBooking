@@ -10,7 +10,6 @@ const jwt = require('jsonwebtoken')
 
 
 
-
 // Signup Route
 
 router.post("/signup", async (req,res)=>{
@@ -120,18 +119,16 @@ router.post("/login", async (req,res)=>{
             }
             // Signing the JWT Token
             const Token = jwt.sign(data, process.env.SECRET_KEY);
-
-            // Verifying JWT Token to find user Details
-            const decode = jwt.verify(Token, process.env.SECRET_KEY)
-            const userId = decode.user.id
-
+           
+        
             // Saving the JWT Token in the database in User collection.
             userAuth.token = Token;
             await userAuth.save()
-             
             
-            
-            return res.status(200).json({Token:Token, UserID:userId})
+
+            return res
+            .status(200)    
+            .json({Token:Token})
         }  
     }catch(err){
         return res.status(404).json({message: "Some Error Occured"} + err)
@@ -220,7 +217,7 @@ router.get('/toprooms', async (req,res)=>{
 
 router.get('/rooms', async (req,res)=>{
    try{
-    const data = await Rooms.find({category:"popular"})
+    const data = await Rooms.find({})
     return res.send(data)
    }
    catch(err){
@@ -265,17 +262,25 @@ router.get('/:id', async (req,res)=>{
 //  Send the User BookingData into Database 
 
 router.post("/BookingRoom", async (req,res)=>{
-
     const {roomID, name, phone, from, to} = req.body
-
-    // Finding the Particular user email who is booking the room 
-    const findEmail = await User.findOne({"_id":req.headers.user})
-    const userEmail = findEmail.email
 
     try{
 
+        if(!req.headers.token){
+            console.log("Kindly First Login your account")
+            return res.status(404).json({message:"Kindly First Login your Account."})
+        }
+
+        // Verifying the JWT Token
+        const decode = jwt.verify(req.headers.token, process.env.SECRET_KEY)
+        const user = decode.user.id 
+
+        // Finding the Particular user email who is booking the room 
+        const findEmail = await User.findOne({"_id":user})
+        const userEmail = findEmail.email
+
         if(!roomID || !name || !phone || !from || !to){
-            return res.status(502).json({message:"Please fill the field properly"})
+            return res.status(400).json({message:"Please fill the field properly"})
         }
 
 
@@ -283,6 +288,11 @@ router.post("/BookingRoom", async (req,res)=>{
 
         const data = new Bookings({roomID, name, phone, email:userEmail, from, to})  
         const saveData = await data.save();
+
+        //Save the Booked Room Id in particular user Bookings Field.
+        findEmail.bookings.push(saveData.roomID) 
+        await findEmail.save()
+
 
         if(saveData){             
 
@@ -317,7 +327,80 @@ router.post("/BookingRoom", async (req,res)=>{
      
 })
  
- 
+// Logout the User
 
+router.post("/logout",async(req,res)=>{
+
+    try {
+        // Getting the Token
+        const token = req.headers.token
+
+        // Verifying the JWT Token
+
+        const decode = await jwt.verify(token, process.env.SECRET_KEY)
+        const user = decode.user.id 
+
+        // Finding the user by JWT Token
+        const findLoggedInUser = await User.findOne({_id:user})
+
+        // Set user Token blank when user is Logout
+        findLoggedInUser.token = ""
+        await findLoggedInUser.save()
+
+        res.send("Logout Successfully")
+
+    } catch (error) {
+        res.send("Some error Occured", error)
+        console.log("Some Error occured", error)
+    }
+    
+})
+
+// All Bookings of a Particular User
+router.get("/my_bookings/bookings", async (req,res)=>{
+    try {
+        // Finding the jwt auth token    
+        const Token = req.headers.token
+    
+        if(!Token){
+            return res.status(408).json({message:"Kindly Login your account"})
+        }
+
+        // Verifying the JWT Token.
+        // Note- Here we are using try and catch block so that if the token is edited or the value of token is modified, no error will occured. 
+        try {           
+            const decode = jwt.verify(Token, process.env.SECRET_KEY)
+            const userID = decode.user.id
+
+            // Finding the particular user by email
+            const findUser = await User.findById({_id:userID})
+        
+            // Retrive booked rooms from bookings section
+            const bookedRooms = findUser.bookings
+
+            // Retrive the full Rooms with Details by bookedRooms id's
+
+            try {
+                let roomData=[]
+                for(let i=0; i<bookedRooms.length; i++){
+                    let room = await Rooms.findById({'_id':bookedRooms[i]})
+                    roomData.push(room)
+                }              
+                return res
+                .status(200)
+                .send(roomData)
+
+            } catch (error) {
+                return res.send("Rooms not Found", error)
+            }
+            
+        } catch (error) {
+            return res.status(409).json({message:"Invalid JWT token"})
+        } 
+  
+    } catch (error) {
+        return res.send("Some Error Occured", error)
+    }
+})
 
 module.exports = router

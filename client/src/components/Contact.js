@@ -4,13 +4,15 @@ import Swal from 'sweetalert2'
 
 export default function Contact() {
 
+            const host = window.location.hostname
+
             const [Message, setMessage] = useState({
                 name:"", email:"", phone:"", message:""
             })
 
             const SendMessage = async (e)=>{
                 e.preventDefault()
-                const res = await fetch("http://localhost:7335/contact", {
+                const res = await fetch(`http://${host}:7335/contact`, {
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json"           

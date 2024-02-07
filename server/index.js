@@ -3,12 +3,15 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+// const cookieParser = require('cookie-parser')
+
 
 // Solve the CORS Problem.
 
 app.use(cors({
     origin: "*",
-    methods: ["GET","POST","PUT", "DELETE"],      
+    credentials: true,
+    methods: ["GET","POST","PUT", "DELETE", "PATCH"],  
 }));
 
 // Environment variable configuration
@@ -27,10 +30,7 @@ const connection = require('./DB/connection')
 
 app.use(express.json())
 app.use(require('./Routes/routes'))
-
-
-
-
+// app.use(cookieParser())
 
 
 

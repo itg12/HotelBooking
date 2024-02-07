@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Div1() {
   return (
@@ -14,7 +15,7 @@ export default function Div1() {
 
                 <p className="desc1">SLIKEE HOTEL</p>
                 <p className="desc2">RESORT AND RESTRAUNT</p>	
-                <button className="BookRoom-btn">BOOK ROOM</button>
+                <Link to={'/rooms'}><button className="BookRoom-btn">BOOK ROOM</button></Link>
             </div>
 
             <div className="right-div1">

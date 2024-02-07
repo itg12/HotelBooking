@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 
 export default function Signup() {
 
+    const host = window.location.hostname
+
     const navigate = useNavigate();
     
     const [user, setUser] = useState({
@@ -15,7 +17,7 @@ export default function Signup() {
 
     const PostData = async (e)=>{
         e.preventDefault()
-        const res = await fetch("http://localhost:7335/signup", {
+        const res = await fetch(`http://${host}:7335/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"         

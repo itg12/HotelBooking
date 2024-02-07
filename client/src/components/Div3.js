@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 export default function Div3() {
 
+    const host = window.location.hostname
 
     const [Rooms, setRooms] = useState([])
     useEffect(()=>{
@@ -11,7 +12,7 @@ export default function Div3() {
 
 
     const getRooms=()=>{
-      let p = fetch("http://localhost:7335/rooms")
+      let p = fetch(`http://${host}:7335/rooms`)
 
       p.then((value1) => {
           return value1.json();
@@ -30,7 +31,7 @@ export default function Div3() {
 
         <div className="div3">
             {
-                Rooms.slice(0,2).map((data)=>{
+                Rooms.slice(4,6).map((data)=>{
                 const {_id, image, title, description, price}= data
                 
                 return(

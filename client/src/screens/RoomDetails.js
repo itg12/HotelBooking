@@ -1,11 +1,15 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 export default function RoomDetails(){
 
     const {id} = useParams()
+
+    const host = window.location.hostname
+    console.log(host)
+
 
     const [Room, setRoom] = useState([])
     const [Facilities, setFacilities] = useState([] )
@@ -15,7 +19,7 @@ export default function RoomDetails(){
     },[])
 
     const getRoom=()=>{
-        let p = fetch(`http://localhost:7335/${id}`)
+        let p = fetch(`http://${host}:7335/${id}`)
   
         p.then((value1) => {
             return value1.json();
@@ -53,10 +57,9 @@ export default function RoomDetails(){
                 <p className='roomDetails-ratingNo' style={{color:"white", fontWeight:"bold", fontSize:"25px"}}>{Room.rating}<span><img src="star-fill.svg" alt="" /></span></p>
               </div>
             </div>
-            <button className="roomDetails-book-btn">BOOK ROOM</button>
+            <Link to={`/BookRoom/${id}`}><button className="roomDetails-book-btn">BOOK ROOM</button></Link>
           </div>
       </div> 
-
    </>
   )
 }

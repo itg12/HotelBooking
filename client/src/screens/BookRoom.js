@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 
 export default function BookRoom() {
 
+    const host = window.location.hostname
+
     const navigate= useNavigate()
 
 
@@ -21,11 +23,7 @@ export default function BookRoom() {
     },[])
 
     const getBookRoom=()=>{
-        let p = fetch(`http://localhost:7335/BookRoom/${id}`, {
-            headers:{
-                'user': localStorage.getItem("User")
-            }
-        })
+        let p = fetch(`http://${host}:7335/BookRoom/${id}`)
  
         p.then((value1) => {
             return value1.json();
@@ -45,11 +43,11 @@ export default function BookRoom() {
 
     const Booking = async (e)=>{
         e.preventDefault()
-        const res = await fetch("http://localhost:7335/BookingRoom", {
+        const res = await fetch(`http://${host}:7335/BookingRoom`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "user": localStorage.getItem("User")
+            "token": localStorage.getItem("Token"),
         },
         body: JSON.stringify({roomID:BookRoom._id, name:sendData.name, phone:sendData.phone,from:sendData.from, to:sendData.to})
         })
@@ -57,7 +55,11 @@ export default function BookRoom() {
 
         const response  = await res.json()
 
-        if(res.status === 502){
+        if(res.status === 404){
+            Swal.fire("Warning","Kindly Login your account","warning")            
+        }
+
+        if(res.status === 400){
             Swal.fire("Warning","Please fill the field properly","warning")            
         }
 

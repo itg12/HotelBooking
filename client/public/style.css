@@ -323,7 +323,7 @@ body{
     align-items: center;
 }
 .div3-popular-rooms-body{
-    width: 95vw;
+    width: 94vw;
     height: 200px;
     background-color: white;
     margin-top: 2%;
@@ -615,7 +615,7 @@ select option{
     background:linear-gradient(90deg, #2f1d58, #442063, #2f1d58);
     border-radius: 10px ;
     margin-left: 5px;
-
+    /* z-index: -1; */
 }
 .roomDetails-roomImgage{
     width: 100%;

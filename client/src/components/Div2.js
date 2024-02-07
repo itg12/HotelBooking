@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
+
 export default function Div2() {
+
+  const host = window.location.hostname
 
   const [TopRooms, setTopRooms] = useState([])
   useEffect(()=>{
@@ -11,7 +14,7 @@ export default function Div2() {
   },[])
 
   const getTopRooms = () => {
-    const p = fetch('http://192.168.133.80:7335/toprooms')
+    const p = fetch(`http://${host}:7335/toprooms`)
     p.then((res)=>{
       return res.json()
     }).then((data)=>{
