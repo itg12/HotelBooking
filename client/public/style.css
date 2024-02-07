@@ -603,6 +603,7 @@ select option{
     justify-content: center;
     align-items: center;
     padding: 10px 0px;
+    /* z-index: -1; */
 }
 
 .roomImage-div{
@@ -615,7 +616,7 @@ select option{
     background:linear-gradient(90deg, #2f1d58, #442063, #2f1d58);
     border-radius: 10px ;
     margin-left: 5px;
-    /* z-index: -1; */
+    /* z-index: 1; */
 }
 .roomDetails-roomImgage{
     width: 100%;
@@ -671,6 +672,7 @@ select option{
     letter-spacing: 4px;
     color: #442063;
     font-weight: bold;
+    /* z-index: 1; */
 }
 
 /* ****************************CONTACT US AND ABOUT US********************************** */
