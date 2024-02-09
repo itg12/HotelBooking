@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, NavLink} from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 export default function Navbar() {
@@ -58,13 +58,13 @@ export default function Navbar() {
             </div>
             <div className="Menubar" id="Menubar">
                 <ul>
-                    <li><Link to="/">HOME</Link></li>
-                    <li><Link to='/rooms'>ROOMS</Link></li>
-                    <li><Link to='/restraunt'>RESTRAUNT</Link></li>
-                    <li><Link to='/facilities'>FACILITIES</Link></li>
+                    <li><NavLink to="/">HOME</NavLink></li>
+                    <li><NavLink to='/rooms'>ROOMS</NavLink></li>
+                    <li><NavLink to='/restraunt'>RESTRAUNT</NavLink></li>
+                    <li><NavLink to='/facilities'>FACILITIES</NavLink></li>
                     {
                         (localStorage.getItem("Token"))?
-                        <li><Link to='/bookings'>BOOKINGS</Link></li>                  
+                        <li><NavLink to='/bookings'>BOOKINGS</NavLink></li>                  
                         :""
                     }
                     {
