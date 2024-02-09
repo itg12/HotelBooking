@@ -9,13 +9,12 @@ export default function Div1() {
         <div className="div1">
             <div className="left-div1">
                 <div className="discount-div">
-                    <button className="promo-btn">PROMO</button>
+                    <button className="promo-btn">APPLY</button>
                     <input className="disc-field" type="text" placeholder="GET 20% DISCOUNT"/>
                 </div>
-
                 <p className="desc1">SLIKEE HOTEL</p>
                 <p className="desc2">RESORT AND RESTRAUNT</p>	
-                <Link to={'/rooms'}><button className="BookRoom-btn">BOOK ROOM</button></Link>
+                <Link to="/rooms"><button className="BookRoom-btn">BOOK ROOM</button></Link>
             </div>
 
             <div className="right-div1">

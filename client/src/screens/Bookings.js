@@ -41,19 +41,19 @@ export default function Bookings() {
             method:"POST",
             headers:{
                 "token": localStorage.getItem("Token"),
-                "roomid": RoomId
+                "roomid": RoomId               
             }
         })
 
         p.then((res)=>{
-            res.json()
+            const response = res.json()
 
-            if(res.status===200){
+            if(response.status===200){
                 Swal.fire("SUCCESS", `CANCEL SUCCESSFULLY`, 'success')  
                 navigate("/")
             }
     
-            if(res.status===404){
+            if(response.status===404){
                 Swal.fire("ERROR", `SOME ERROR OCCURED`, 'error')  
             }  
         }).catch((err)=>console.log(err))      

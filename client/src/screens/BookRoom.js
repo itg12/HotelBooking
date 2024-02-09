@@ -87,7 +87,6 @@ export default function BookRoom() {
                     <center><input className='BookRoom-InputBox' type="text" placeholder={BookRoom._id} readOnly name='roomID' value={BookRoom._id}/></center><br></br>
                     <center><input className='BookRoom-InputBox' type="text" placeholder='ENTER YOUR NAME' maxLength="25" name='name' value={sendData.name} onChange={handleInput}/></center><br></br>
                     <center><input className='BookRoom-InputBox' type="number" placeholder='ENTER PHONE NO.' maxLength="10" name='phone' value={sendData.phone} onChange={handleInput}/></center><br></br>
-                    {/* <center><input className='BookRoom-InputBox' type="email" placeholder='ENTER YOUR EMAIL' maxLength="50"  name='email' value={sendData.email} onChange={handleInput}/></center><br></br> */}
                     <center><input className='BookRoom-InputBox' type="date" placeholder='From'  name='from' value={sendData.from} onChange={handleInput}/></center><br></br>
                     <center><input className='BookRoom-InputBox' type="date" placeholder='To' name='to' value={sendData.to} onChange={handleInput}/></center><br></br>
                     <button className="roomDetails-book-btn" onClick={Booking}>BOOK</button>

@@ -350,11 +350,12 @@ router.post("/logout",async(req,res)=>{
 
 
 // All Bookings of a Particular User
+
 router.get("/my_bookings/bookings", async (req,res)=>{
     try {
         // Finding the jwt auth token    
         const Token = req.headers.token
-    
+        
         if(!Token){
             return res.status(408).json({message:"Kindly Login your account"})
         }
@@ -414,9 +415,14 @@ router.post("/CancelBooking", async (req,res)=>{
         // Finding the user by JWT Token
         const findLoggedInUser = await User.findOne({_id:user})
 
-        // Remove the Booking from the Database.
+        // Remove the Booking from the User Bookings Section.
         await findLoggedInUser.bookings.remove(RoomId)
         const saveDetails = await findLoggedInUser.save()
+
+        // Remove the Booking from the Bookings collection.
+        await Bookings.findOne({})
+
+
 
         if(saveDetails){
             return res.status(200).json({message:"Cancle Booking Successfully"})
