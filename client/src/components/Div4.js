@@ -28,6 +28,15 @@ export default function Div4(props) {
           if(props.FilterQuery){
             setRooms(data.filter((val)=>val.price<=props.FilterQuery || val.capacity==props.FilterQuery || val.rating==props.FilterQuery))
           }
+          if(props.FilterQuery==='4star'){
+            setRooms(data.filter((val)=>val.rating==4))
+          }
+          if(props.FilterQuery==='4.5star'){
+            setRooms(data.filter((val)=>val.rating==4.5))
+          }
+          if(props.FilterQuery==='5star'){
+            setRooms(data.filter((val)=>val.rating==5))
+          }
         }).catch((err)=>console.log(err))
     }
 

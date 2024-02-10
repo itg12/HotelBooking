@@ -159,9 +159,9 @@ export default function Rooms() {
 
                     <select name="sort_value filter-title" onChange={handleFilterInput}>
                         <option value="">SELECT</option>
-                        <option value="4">4 STAR RATING</option>
-                        <option value="4.5">4.5 STAR RATING</option>
-                        <option value="5">5 STAR</option>
+                        <option value="4star">4 STAR RATING</option>
+                        <option value="4.5star">4.5 STAR RATING</option>
+                        <option value="5star">5 STAR</option>
                     </select>
                 </div>
             </div>
