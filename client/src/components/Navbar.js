@@ -1,8 +1,12 @@
 import React from 'react'
 import {Link, useNavigate, NavLink} from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { useState } from 'react'
 
 export default function Navbar() {
+
+    const [Search, setSearch]= useState('')
+
 
     const host = window.location.hostname
 
@@ -45,6 +49,12 @@ export default function Navbar() {
         navigate("/login")
     }
 
+    // Handling Searchbar functionality
+
+    const handleInput=(e)=>{
+        setSearch(e.target.value)
+    }
+
   return (
    <>
 
@@ -76,7 +86,7 @@ export default function Navbar() {
                 </ul>
             </div>
             <div className="searchbar">
-                <input className="search-box" type="search" placeholder="Search.."/>
+                <input className="search-box" type="search" placeholder="Search.." value={Search} onChange={handleInput}/>
             </div>
             {          
                 (!localStorage.getItem("Token")) ?      
@@ -96,7 +106,6 @@ export default function Navbar() {
                 <img className="" src="x-lg.svg" width="30px" height="40px" alt="img"/>
             </button>
         </div> 
-
    </>
   )
 }

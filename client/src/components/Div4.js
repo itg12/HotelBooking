@@ -1,15 +1,16 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
-export default function Div3() {
+export default function Div4(props) {
 
     const host = window.location.hostname
 
     const [Rooms, setRooms] = useState([])
+    // const [SortedData, setSortedData] = useState([])
     useEffect(()=>{
         getRooms()
-    },[])
+    },[props])
+
 
     const getRooms=()=>{
         let p = fetch(`http://${host}:7335/rooms`)
@@ -18,8 +19,19 @@ export default function Div3() {
             return value1.json();
         }).then((data) => {
           setRooms(data)
+          if(props.SortQuery==="lowToHigh"){           
+            setRooms(data.sort((a,b)=>a.price-b.price))
+          }
+          if(props.SortQuery==="highToLow"){
+            setRooms(data.sort((a,b)=>a.price-b.price).reverse())
+          }
+          if(props.FilterQuery){
+            setRooms(data.filter((val)=>val.price<=props.FilterQuery || val.capacity==props.FilterQuery || val.rating==props.FilterQuery))
+          }
         }).catch((err)=>console.log(err))
     }
+
+    
 
   return (
     <>
@@ -28,8 +40,8 @@ export default function Div3() {
 	
         <div className="div3">
             {
-
-                Rooms.map((data)=>{
+                Rooms.filter((item)=>(item.title).toLowerCase().includes(props.SearchQuery))
+                .map((data)=>{
                     const {_id, image, title, description, price}= data
 
                     return(
