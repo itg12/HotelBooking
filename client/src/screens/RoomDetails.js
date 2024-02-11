@@ -8,7 +8,6 @@ export default function RoomDetails(){
     const {id} = useParams()
 
     const host = window.location.hostname
-    console.log(host)
 
 
     const [Room, setRoom] = useState([])

@@ -64,7 +64,7 @@ export default function BookRoom() {
         }
 
         if(res.status===200){
-            Swal.fire("SUCCESS", `BOOKING SUCCESSFULL WITH ID:${response.id}`, 'success')  
+            Swal.fire("SUCCESS", `BOOKING SUCCESSFULL WITH ID:${response.BookingId}`, 'success')  
             navigate("/")
         }
     }

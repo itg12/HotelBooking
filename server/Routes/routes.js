@@ -279,7 +279,7 @@ router.post("/BookingRoom", async (req,res)=>{
 
         const data = new Bookings({roomID, name, phone, email:userEmail, from, to})  
         const saveData = await data.save();
-
+ 
         //Save the Booked Room Id in particular user Bookings Field.
         findEmail.bookings.push(saveData.roomID) 
         await findEmail.save()
@@ -287,7 +287,7 @@ router.post("/BookingRoom", async (req,res)=>{
 
         if(saveData){             
 
-            res.status(200).json({message: "Booking Successfull", id:saveData.id, bookingDate:saveData.bookingDate})  
+            res.status(200).json({message: "Booking Successfull", BookingId:saveData.id, RoomId:saveData.roomID, bookingDate:saveData.bookingDate})  
 
             // Now we are sending the email for successfull signup to the user.
 
@@ -306,7 +306,7 @@ router.post("/BookingRoom", async (req,res)=>{
                 from: '"risansig.2019@gmail.com', // sender address
                 to: userEmail, // list of receivers
                 subject: "SLIKEE Hotel", // Subject line
-                text:  `Your Booking has confirmed with Booking id: ${saveData.id}. Booking Date and Time is: ${saveData.bookingDate}. Keep your ID Safe for any query.`, // plain text body
+                text:  `Your Booking has confirmed with Booking id: ${saveData.id}. Booking Date and Time is: ${saveData.bookingDate}. Your RoomId is:${saveData.roomID}. Kindly keep safe your BookingId and RoomId because it's also required (if you want to cancel your Booking)`, // plain text body
                 });          
             }
             main().catch(console.error)
@@ -368,28 +368,28 @@ router.get("/my_bookings/bookings", async (req,res)=>{
 
             // Finding the particular user by email
             const findUser = await User.findById({_id:userID})
-        
-            // Retrive booked rooms from bookings section
-            const bookedRooms = findUser.bookings
+                 
+            // Retrive the Room Id's from User Bookings field.
+            const roomIds = findUser.bookings
 
-            // Retrive the full Rooms with Details by bookedRooms id's
-
+            // Retrive the full Rooms with Details by BookedRooms id's
             try {
                 let roomData=[]
-                for(let i=0; i<bookedRooms.length; i++){
-                    let room = await Rooms.findById({'_id':bookedRooms[i]})
-                    roomData.push(room)
-                }              
+                for(let i=0; i<roomIds.length; i++){
+                    const rooms = await Rooms.findOne({'_id':roomIds[i]})
+                    roomData.push(rooms)
+                }          
+
                 return res
                 .status(200)
-                .send(roomData)
+                .json({message:"Room Fetched", roomData})
 
-            } catch (error) {
-                return res.send("Rooms not Found", error)
+            } catch(error){
+                return res.json({message:"Some Error Occured"})
             }
             
-        } catch (error) {
-            return res.status(409).json({message:"Invalid JWT token"})
+        }catch (error) {
+            return res.status(400).json({message:"Invalid JWT token"})
         } 
   
     } catch (error) {
@@ -400,33 +400,35 @@ router.get("/my_bookings/bookings", async (req,res)=>{
 
 // Cancel A Particular Booked Room
 
-router.post("/CancelBooking", async (req,res)=>{
-    try {
-        
+router.post("/CancelBooking", async (req,res)=>{    
+    const {RoomId, BookingId} =req.body    
+    try {       
         // Getting the Token and RoomId sending by the headers
         const token = req.headers.token
-        const RoomId = req.headers.roomid
+        
+        if(!RoomId || !BookingId){
+            return res.status(502).json({message:"Please fill the field properly"})
+        }else{
+            // Verifying the JWT Token
 
-        // Verifying the JWT Token
+            const decode = await jwt.verify(token, process.env.SECRET_KEY)
+            const user = decode.user.id 
 
-        const decode = await jwt.verify(token, process.env.SECRET_KEY)
-        const user = decode.user.id 
+            // Finding the user by JWT Token
+            const findLoggedInUser = await User.findOne({_id:user})
 
-        // Finding the user by JWT Token
-        const findLoggedInUser = await User.findOne({_id:user})
+            // Remove the Booking from the User Bookings Section.
+            await findLoggedInUser.bookings.remove(RoomId)
+            const saveUser = await findLoggedInUser.save()
 
-        // Remove the Booking from the User Bookings Section.
-        await findLoggedInUser.bookings.remove(RoomId)
-        const saveDetails = await findLoggedInUser.save()
+            // // Remove the Bookings from the User Bookings Collection.
+            // const deleteBooking = await Bookings.findOne({_id:BookingId})
+            // const saveBookings = await deleteBooking.save()
 
-        // Remove the Booking from the Bookings collection.
-        await Bookings.findOne({})
-
-
-
-        if(saveDetails){
-            return res.status(200).json({message:"Cancle Booking Successfully"})
-        }
+            if(saveUser){
+                return res.status(200).json({message:"Cancle Booking Successfully"})
+            }
+    }
     } catch (error) {
         return res.send("Some Error Occured", error)
     }

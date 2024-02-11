@@ -7,6 +7,7 @@ import Facilities from './screens/Facilities';
 import Restraunt from './screens/Restraunt';
 import BookRoom from './screens/BookRoom';
 import RoomDetails from './screens/RoomDetails';
+import CancellationPage from "./screens/CancellationPage";
 
 
 import {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/restraunt' exact element = {<Restraunt/>} />
           <Route path='/BookRoom/:id' exact element = {<BookRoom/>} />
           <Route path='/:id' exact element = {<RoomDetails/>} />
+          <Route path='/cancelBooking' exact element = {<CancellationPage/>}/>
         </Routes>
       </Router>
     </>
