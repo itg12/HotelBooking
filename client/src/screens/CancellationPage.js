@@ -4,10 +4,11 @@ import Footer from '../components/Footer'
 import Swal from 'sweetalert2'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BaseUrl } from '../services/BaseUrl'
 
 
 export default function CancellationForm() {
-  const host = window.location.hostname
+  // const host = window.location.hostname
 
   const navigate= useNavigate()
 
@@ -17,7 +18,7 @@ export default function CancellationForm() {
 })
 
   const cancelBooking=()=>{
-        let p = fetch(`http://${host}:7335/CancelBooking`,{
+        let p = fetch(`${BaseUrl}/CancelBooking`,{
           method: "POST",
           headers: {
             "Content-Type": "application/json",

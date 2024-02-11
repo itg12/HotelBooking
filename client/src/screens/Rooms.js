@@ -4,12 +4,12 @@ import Swal from 'sweetalert2'
 import { useState } from 'react'
 import Footer from '../components/Footer'
 import Div4 from '../components/Div4'
-
+import { BaseUrl } from '../services/BaseUrl'
 
 
 export default function Rooms() {
 
-  const host = window.location.hostname
+//   const host = window.location.hostname
 
 
   // *******************************RESPONSIVE NAVBAR************************
@@ -38,7 +38,7 @@ export default function Rooms() {
 
   const handleLogOut= async (e)=>{
       e.preventDefault()
-      let p = await fetch( `http://${host}:7335/logout`,{
+      let p = await fetch( `${BaseUrl}/logout`,{
           method:"POST",
           headers:{
               "token":localStorage.getItem("Token")

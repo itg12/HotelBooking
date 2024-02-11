@@ -3,13 +3,14 @@ import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import {BaseUrl} from '../services/BaseUrl'
 
 
 
 
 export default function Bookings() {
 
-    const host = window.location.hostname
+    // const host = window.location.hostname
 
     const navigate = useNavigate()
 
@@ -19,7 +20,7 @@ export default function Bookings() {
     },[])
     
     const findBookings=()=>{
-        let p = fetch(`http://${host}:7335/my_bookings/bookings`,{
+        let p = fetch(`${BaseUrl}/my_bookings/bookings`,{
             method:"GET",
             headers:{
                 "token": localStorage.getItem("Token")

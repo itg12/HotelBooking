@@ -2,13 +2,14 @@ import React from 'react'
 import {Link, useNavigate, NavLink} from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useState } from 'react'
+import { BaseUrl } from '../services/BaseUrl'
 
 export default function Navbar() {
 
     const [Search, setSearch]= useState('')
 
 
-    const host = window.location.hostname
+    // const host = window.location.hostname
 
 
     // *******************************RESPONSIVE NAVBAR************************
@@ -37,7 +38,7 @@ export default function Navbar() {
 
     const handleLogOut= async (e)=>{
         e.preventDefault()
-        let p = await fetch( `http://${host}:7335/logout`,{
+        let p = await fetch( `${BaseUrl}/logout`,{
             method:"POST",
             headers:{
                 "token":localStorage.getItem("Token")

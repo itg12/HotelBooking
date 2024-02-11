@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { BaseUrl } from '../services/BaseUrl'
 export default function Div3() {
 
     const host = window.location.hostname
@@ -12,7 +13,7 @@ export default function Div3() {
 
 
     const getRooms=()=>{
-      let p = fetch(`http://${host}:7335/rooms`)
+      let p = fetch(`${BaseUrl}/rooms`)
 
       p.then((value1) => {
           return value1.json();

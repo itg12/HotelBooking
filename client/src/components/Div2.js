@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'
-
+import { BaseUrl } from '../services/BaseUrl'
 
 
 export default function Div2() {
@@ -14,7 +14,7 @@ export default function Div2() {
   },[])
 
   const getTopRooms = () => {
-    const p = fetch(`http://${host}:7335/toprooms`)
+    const p = fetch(`${BaseUrl}/toprooms`)
     p.then((res)=>{
       return res.json()
     }).then((data)=>{

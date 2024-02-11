@@ -3,11 +3,11 @@ import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-
+import { BaseUrl } from '../services/BaseUrl'
 
 export default function BookRoom() {
 
-    const host = window.location.hostname
+    // const host = window.location.hostname
 
     const navigate= useNavigate()
 
@@ -23,7 +23,7 @@ export default function BookRoom() {
     },[])
 
     const getBookRoom=()=>{
-        let p = fetch(`http://${host}:7335/BookRoom/${id}`)
+        let p = fetch(`${BaseUrl}/BookRoom/${id}`)
  
         p.then((value1) => {
             return value1.json();
@@ -43,7 +43,7 @@ export default function BookRoom() {
 
     const Booking = async (e)=>{
         e.preventDefault()
-        const res = await fetch(`http://${host}:7335/BookingRoom`, {
+        const res = await fetch(`${BaseUrl}/BookingRoom`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

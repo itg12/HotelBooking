@@ -9,7 +9,7 @@ export default function Facilities() {
         <Navbar/>
         <div className="facilities-main-div">
             <div className="facility-card">
-                <img src="https://hotelxtoronto.com/_novaimg/4906918-1481330_0_0_2200_1200_2200_1200.rc.jpg" alt="Card image cap" alt="img" width={"100%"} height={"200px"} style={{borderRadius:"10px"}}/>
+                <img src="https://hotelxtoronto.com/_novaimg/4906918-1481330_0_0_2200_1200_2200_1200.rc.jpg" alt="Card image cap" width={"100%"} height={"200px"} style={{borderRadius:"10px"}}/>
                 <center><p className="roomDetails-title">HOTEL</p></center>
                 <center><p className="roomDetails-Desc">ROOMS ARE AVAILABLE IN THE HOTEL ON THE SUTAIBLE PRICE.</p></center>
             </div>

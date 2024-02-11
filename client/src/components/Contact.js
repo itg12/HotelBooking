@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
+import { BaseUrl } from '../services/BaseUrl'
 
 export default function Contact() {
 
@@ -12,7 +13,7 @@ export default function Contact() {
 
             const SendMessage = async (e)=>{
                 e.preventDefault()
-                const res = await fetch(`http://${host}:7335/contact`, {
+                const res = await fetch(`${BaseUrl}/contact`, {
                     method: "POST",
                     headers: {
                     "Content-Type": "application/json"           

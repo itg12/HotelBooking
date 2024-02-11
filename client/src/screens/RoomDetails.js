@@ -2,12 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { BaseUrl } from '../services/BaseUrl'
 
 export default function RoomDetails(){
 
     const {id} = useParams()
 
-    const host = window.location.hostname
+    // const host = window.location.hostname
 
 
     const [Room, setRoom] = useState([])
@@ -18,7 +19,7 @@ export default function RoomDetails(){
     },[])
 
     const getRoom=()=>{
-        let p = fetch(`http://${host}:7335/${id}`)
+        let p = fetch(`${BaseUrl}/${id}`)
   
         p.then((value1) => {
             return value1.json();

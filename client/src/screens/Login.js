@@ -3,11 +3,12 @@ import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
+import { BaseUrl } from '../services/BaseUrl'
 
 
 export default function Login() {
 
-  const host = window.location.hostname
+  // const host = window.location.hostname
 
   const navigate = useNavigate()
 
@@ -17,7 +18,7 @@ export default function Login() {
 
   const PostData = async (e)=>{
       e.preventDefault()
-      const res = await fetch(`http://${host}:7335/login`, {
+      const res = await fetch(`${BaseUrl}/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
