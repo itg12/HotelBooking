@@ -68,7 +68,7 @@ export default function Bookings() {
                                 </div>
                                 </div>
                                 {/* <button className="roomDetails-book-btn" onClick={()=> cancelBooking(_id)}>CANCEL</button> */}
-                                {/* <Link to="/cancelBooking" ><button className="roomDetails-book-btn">CANCEL</button></Link> */}
+                                <Link to="/cancelBooking" ><button className="roomDetails-book-btn">CANCEL</button></Link>
                             </div>
                         </div>   
                     </>

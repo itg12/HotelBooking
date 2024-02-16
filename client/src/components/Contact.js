@@ -5,7 +5,7 @@ import { BaseUrl } from '../services/BaseUrl'
 
 export default function Contact() {
 
-            const host = window.location.hostname
+            // const host = window.location.hostname
 
             const [Message, setMessage] = useState({
                 name:"", email:"", phone:"", message:""

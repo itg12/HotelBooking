@@ -56,7 +56,15 @@ export default function BookRoom() {
         const response  = await res.json()
 
         if(res.status === 404){
+            Swal.fire("Error","Some Error Occured Can Not Book","error")            
+        }
+
+        if(res.status === 401){
             Swal.fire("Warning","Kindly Login your account","warning")            
+        }
+
+        if(res.status === 402){
+            Swal.fire("Warning","From should be less than To","warning")            
         }
 
         if(res.status === 400){

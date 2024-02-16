@@ -3,7 +3,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-// const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 
 
 // Solve the CORS Problem.
@@ -22,7 +22,6 @@ const PORT = process.env.PORT
 
 // Database configuration
 
-const mongoose = require('mongoose')
 const connection = require('./DB/connection')
 
 
@@ -30,7 +29,7 @@ const connection = require('./DB/connection')
 
 app.use(express.json())
 app.use(require('./Routes/routes'))
-// app.use(cookieParser())
+app.use(cookieParser())
 
 
 

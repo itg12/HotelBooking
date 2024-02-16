@@ -7,7 +7,6 @@ export default function Div4(props) {
     // const host = window.location.hostname
 
     const [Rooms, setRooms] = useState([])
-    // const [SortedData, setSortedData] = useState([])
     useEffect(()=>{
         getRooms()
     },[props])
@@ -20,6 +19,9 @@ export default function Div4(props) {
             return value1.json();
         }).then((data) => {
           setRooms(data)
+          if(props.SearchQuery!==""){
+            setRooms(data.filter((item)=>(item.title).toLowerCase().includes(props.SearchQuery)))
+          }
           if(props.SortQuery==="lowToHigh"){           
             setRooms(data.sort((a,b)=>a.price-b.price))
           }
@@ -50,8 +52,7 @@ export default function Div4(props) {
 	
         <div className="div3">
             {
-                Rooms.filter((item)=>(item.title).toLowerCase().includes(props.SearchQuery))
-                .map((data)=>{
+                Rooms.map((data)=>{
                     const {_id, image, title, description, price}= data
 
                     return(

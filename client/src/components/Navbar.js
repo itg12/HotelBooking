@@ -44,7 +44,6 @@ export default function Navbar() {
                 "token":localStorage.getItem("Token")
             }
         })
-        
         localStorage.removeItem("Token")
         Swal.fire("Logout", "Logout Successfull", "success")
         navigate("/login")
