@@ -16,21 +16,23 @@ import {
   Route
 } from "react-router-dom";
 
-function App() {
+
+
+function App() { 
   return (
-    <>      
+    <>    
       <Router>
         <Routes>
-          <Route path='/' exact element = {<Home/>} />
-          <Route path='/login' exact element = {<Login/>} />
-          <Route path='/signup' exact element = {<Signup/>} />
-          <Route path='/rooms' exact element = {<Rooms/>} />
-          <Route path='/bookings' exact element = {<Bookings/>} />
-          <Route path='/facilities' exact element = {<Facilities/>} />
-          <Route path='/restraunt' exact element = {<Restraunt/>} />
-          <Route path='/BookRoom/:id' exact element = {<BookRoom/>} />
-          <Route path='/:id' exact element = {<RoomDetails/>} />
-          <Route path='/cancelBooking' exact element = {<CancellationPage/>}/>
+            <Route path='/' exact element = {<Home/>}/>
+            <Route path='/login' exact element = {<Login/>} />
+            <Route path='/signup' exact element = {<Signup/>} />
+            <Route path='/rooms' exact element = {<Rooms/>} />
+            <Route path='/bookings' exact element = {<Bookings/>} />
+            <Route path='/facilities' exact element = {<Facilities/>} />
+            <Route path='/restraunt' exact element = {<Restraunt/>} />
+            <Route path='/BookRoom/:id'  exact element = {<BookRoom/>}/>             
+            <Route path='/:id' exact element = {<RoomDetails/>} />
+            <Route path='/cancelBooking' exact element = {<CancellationPage/>}/>        
         </Routes>
       </Router>
     </>

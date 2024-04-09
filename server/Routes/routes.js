@@ -277,6 +277,9 @@ router.post("/BookingRoom", async (req,res)=>{
         if(from>to){
             return res.status(402).json({message:"From should be less than To"})
         }
+        if(from<Date.now || to<Date.new){
+            return res.status(406).json({message:"From and To should be greater than current date."})
+        }
 
         // Save the data in particular schema
 

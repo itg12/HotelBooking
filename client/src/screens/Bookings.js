@@ -1,8 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 import {BaseUrl} from '../services/BaseUrl'
 
 
@@ -12,7 +11,6 @@ export default function Bookings() {
 
     // const host = window.location.hostname
 
-    const navigate = useNavigate()
 
     const [Bookings, setBookings]=useState([])
     useEffect(()=>{

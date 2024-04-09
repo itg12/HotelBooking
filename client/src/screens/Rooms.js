@@ -142,11 +142,10 @@ export default function Rooms() {
                     <p className="sorting-title filter-title">FILTER</p>
                     <select name="sort_value filter-title" onChange={handleFilterInput}>
                         <option value="">SELECT</option>
-                        <option value="3000">RS. 2000 - 3000</option>
-                        <option value="5000">RS. 3000 - 5000</option>
-                        <option value="8000">RS. 5000 - 8000</option>
-                        <option value="13000">RS. 8000 - 13000</option>
-                        <option value="18000">RS. 13000 - 18000+</option>
+                        <option value="3000">RS. LESSTHEN 3000</option>
+                        <option value="5000">RS. LESSTHEN 5000</option>
+                        <option value="8000">RS. LESSTHEN 8000</option>
+                        <option value="13000">RS. LESSTHEN 13000</option>
                     </select>
 
                     <select name="sort_value filter-title" onChange={handleFilterInput}>

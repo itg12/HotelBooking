@@ -60,7 +60,6 @@ export default function Navbar() {
 
 
          {/* ***************************NAVBAR************************* */}
-
         <div className="navbar">
             <div className="hotel-name_and_logo">
                 <img className="logo" src="SK.png" alt=""/>

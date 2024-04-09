@@ -66,7 +66,9 @@ export default function BookRoom() {
         if(res.status === 402){
             Swal.fire("Warning","From should be less than To","warning")            
         }
-
+        if(res.status === 406){
+            Swal.fire("Warning","From and To should be greater than Current Date","warning")            
+        }
         if(res.status === 400){
             Swal.fire("Warning","Please fill the field properly","warning")            
         }
