@@ -52,7 +52,7 @@ export default function Signup() {
         if(res.status === 200 )
         {
             setUser({name:"", email:" ", phone:"", password:""})      
-            Swal.fire("SUCCESS", `SIGNUP HAS BEEN SUCCESSFULL WITH ID:${response.id}`, 'success')  
+            Swal.fire("SUCCESS", `SIGNUP SUCCESSFULL WITH ID:${response.id}`, 'success')  
             navigate("/login")           
         }
 }
