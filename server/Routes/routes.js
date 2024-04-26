@@ -115,6 +115,7 @@ router.post("/login", async (req,res)=>{
                     id:userAuth.id
                 }
             }
+            
             // Signing the JWT Token
             const Token = jwt.sign(data, process.env.SECRET_KEY);
            
